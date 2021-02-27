@@ -5,17 +5,25 @@ import allNames from './Names';
 
 const App = () => {
 	const [names, setNames] = useState(allNames);
+	const [borderBoy, setBorderBoy] = useState(false);
+	const [borderGirl, setBorderGirl] = useState(false);
 
 	const filterGirls = () => {
 		setNames(allNames.filter((name) => name.sex === 'f'));
+		setBorderGirl(true);
+		setBorderBoy(false);
 	};
 
 	const filterBoys = () => {
 		setNames(allNames.filter((name) => name.sex === 'm'));
+		setBorderGirl(false);
+		setBorderBoy(true);
 	};
 
 	const filterAll = () => {
 		setNames(allNames);
+		setBorderGirl(false);
+		setBorderBoy(false);
 	};
 
 	const filterName = (e) => {
@@ -36,7 +44,23 @@ const App = () => {
 					fontWeight: 'bolder',
 				}}
 			>
-				<span>BABY</span> <span>NAME</span> <span>PICKER</span>
+				<span
+					style={{
+						color: borderBoy
+							? 'lightblue'
+							: borderGirl
+							? 'lightpink'
+							: 'lightgray',
+					}}
+				>
+					BABY
+				</span>{' '}
+				<span style={{ color: borderGirl ? 'lightpink' : 'lightblue' }}>
+					NAME
+				</span>{' '}
+				<span style={{ color: borderBoy ? 'lightblue' : 'lightpink' }}>
+					PICKER
+				</span>
 			</h1>
 			<NameFilter
 				filterGirls={filterGirls}
@@ -44,7 +68,7 @@ const App = () => {
 				filterAll={filterAll}
 				filterName={filterName}
 			/>
-			<Names names={names} />
+			<Names names={names} borderBoy={borderBoy} borderGirl={borderGirl} />
 		</div>
 	);
 };
