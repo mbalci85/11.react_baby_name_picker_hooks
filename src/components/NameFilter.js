@@ -1,11 +1,12 @@
 import React from 'react';
 
-const NameFilter = ({ filterGirls, filterBoys, filterAll }) => {
+const NameFilter = ({ filterGirls, filterBoys, filterAll, filterName }) => {
 	return (
 		<div style={{ textAlign: 'center' }}>
 			<input
 				style={{ width: 400, height: 40, marginRight: 15 }}
 				placeholder="Type to filter names..."
+				onChange={filterName}
 			/>
 			<button
 				style={{
@@ -15,7 +16,7 @@ const NameFilter = ({ filterGirls, filterBoys, filterAll }) => {
 					borderRadius: 10,
 					backgroundColor: 'lightgray',
 				}}
-				onClick={() => filterAll()}
+				onClick={filterAll}
 			>
 				All
 			</button>
@@ -27,7 +28,7 @@ const NameFilter = ({ filterGirls, filterBoys, filterAll }) => {
 					borderRadius: 10,
 					backgroundColor: 'lightblue',
 				}}
-				onClick={() => filterBoys()}
+				onClick={filterBoys}
 			>
 				Boys
 			</button>
@@ -39,7 +40,7 @@ const NameFilter = ({ filterGirls, filterBoys, filterAll }) => {
 					borderRadius: 10,
 					backgroundColor: 'lightpink',
 				}}
-				onClick={() => filterGirls()}
+				onClick={filterGirls}
 			>
 				Girls
 			</button>

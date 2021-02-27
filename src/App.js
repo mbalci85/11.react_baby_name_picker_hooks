@@ -18,6 +18,14 @@ const App = () => {
 		setNames(allNames);
 	};
 
+	const filterName = (e) => {
+		setNames(
+			allNames.filter((name) =>
+				name.name.toLowerCase().includes(e.target.value.toLowerCase()),
+			),
+		);
+	};
+
 	return (
 		<div>
 			<h1
@@ -34,6 +42,7 @@ const App = () => {
 				filterGirls={filterGirls}
 				filterBoys={filterBoys}
 				filterAll={filterAll}
+				filterName={filterName}
 			/>
 			<Names names={names} />
 		</div>
