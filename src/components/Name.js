@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Name = ({ name }) => {
+const Name = ({ name, addToFavoriteNames }) => {
 	return (
 		<div style={{ display: 'inline-block' }}>
 			<button
@@ -11,6 +11,7 @@ const Name = ({ name }) => {
 					borderRadius: 10,
 					backgroundColor: name.sex === 'f' ? 'lightpink' : 'lightblue',
 				}}
+				onClick={() => addToFavoriteNames(name.id)}
 			>
 				{name.name}
 			</button>

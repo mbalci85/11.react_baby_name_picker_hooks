@@ -1,7 +1,7 @@
 import React from 'react';
 import Name from './Name';
 
-const Names = ({ names, borderGirl, borderBoy }) => {
+const Names = ({ names, borderGirl, borderBoy, addToFavoriteNames }) => {
 	return (
 		<div
 			style={{
@@ -25,7 +25,11 @@ const Names = ({ names, borderGirl, borderBoy }) => {
 			}}
 		>
 			{names.map((name) => (
-				<Name key={name.id} name={name} />
+				<Name
+					key={name.id}
+					name={name}
+					addToFavoriteNames={addToFavoriteNames}
+				/>
 			))}
 		</div>
 	);
