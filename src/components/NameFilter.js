@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NameFilter = () => {
+const NameFilter = ({ filterGirls }) => {
 	return (
 		<div style={{ textAlign: 'center' }}>
 			<input
@@ -37,6 +37,7 @@ const NameFilter = () => {
 					borderRadius: 10,
 					backgroundColor: 'lightpink',
 				}}
+				onClick={() => filterGirls()}
 			>
 				Girls
 			</button>

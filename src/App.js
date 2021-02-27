@@ -5,6 +5,12 @@ import allNames from './Names';
 
 const App = () => {
 	const [names, setNames] = useState(allNames);
+
+	const filterGirls = () => {
+		setNames(allNames.filter((name) => name.sex === 'f'));
+		console.log('Filter Girls');
+	};
+
 	return (
 		<div>
 			<h1
@@ -17,8 +23,8 @@ const App = () => {
 			>
 				<span>BABY</span> <span>NAME</span> <span>PICKER</span>
 			</h1>
-			<NameFilter />
-			<Names names={allNames} />
+			<NameFilter filterGirls={filterGirls} />
+			<Names names={names} />
 		</div>
 	);
 };
