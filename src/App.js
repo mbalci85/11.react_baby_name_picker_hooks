@@ -3,6 +3,7 @@ import FavoriteNames from './components/FavoriteNames';
 import NameFilter from './components/NameFilter';
 import Names from './components/Names';
 import allNames from './Names';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const App = () => {
 	const [names, setNames] = useState(allNames);
@@ -57,50 +58,67 @@ const App = () => {
 	};
 
 	return (
-		<div>
-			<h1
-				style={{
-					textAlign: 'center',
-					fontSize: 56,
-					marginTop: 15,
-					fontWeight: 'bolder',
-				}}
-			>
-				<span
-					style={{
-						color: borderBoy
-							? 'lightblue'
-							: borderGirl
-							? 'lightpink'
-							: 'lightgray',
-					}}
-				>
-					BABY
-				</span>{' '}
-				<span style={{ color: borderGirl ? 'lightpink' : 'lightblue' }}>
-					NAME
-				</span>{' '}
-				<span style={{ color: borderBoy ? 'lightblue' : 'lightpink' }}>
-					PICKER
-				</span>
-			</h1>
-			<NameFilter
-				filterGirls={filterGirls}
-				filterBoys={filterBoys}
-				filterAll={filterAll}
-				filterName={filterName}
+		<Router>
+			<Route
+				path="/"
+				render={() => (
+					<React.Fragment>
+						<div>
+							<h1
+								style={{
+									textAlign: 'center',
+									fontSize: 56,
+									marginTop: 15,
+									fontWeight: 'bolder',
+								}}
+							>
+								<span
+									style={{
+										color: borderBoy
+											? 'lightblue'
+											: borderGirl
+											? 'lightpink'
+											: 'lightgray',
+									}}
+								>
+									BABY
+								</span>{' '}
+								<span
+									style={{
+										color: borderGirl ? 'lightpink' : 'lightblue',
+									}}
+								>
+									NAME
+								</span>{' '}
+								<span
+									style={{
+										color: borderBoy ? 'lightblue' : 'lightpink',
+									}}
+								>
+									PICKER
+								</span>
+							</h1>
+							<NameFilter
+								filterGirls={filterGirls}
+								filterBoys={filterBoys}
+								filterAll={filterAll}
+								filterName={filterName}
+							/>
+							<FavoriteNames
+								favoriteNames={favoriteNames}
+								removeFromFavoriteNames={removeFromFavoriteNames}
+							/>
+							<Names
+								names={names}
+								borderBoy={borderBoy}
+								borderGirl={borderGirl}
+								addToFavoriteNames={addToFavoriteNames}
+							/>
+						</div>
+					</React.Fragment>
+				)}
 			/>
-			<FavoriteNames
-				favoriteNames={favoriteNames}
-				removeFromFavoriteNames={removeFromFavoriteNames}
-			/>
-			<Names
-				names={names}
-				borderBoy={borderBoy}
-				borderGirl={borderGirl}
-				addToFavoriteNames={addToFavoriteNames}
-			/>
-		</div>
+		</Router>
 	);
 };
 
