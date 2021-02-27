@@ -7,22 +7,23 @@ const FavoriteNames = ({ favoriteNames, removeFromFavoriteNames }) => {
 			style={{
 				textAlign: 'center',
 				color: 'lightgray',
+				marginTop: 30,
 			}}
 		>
 			<h4>
 				<span>Favorite Names: </span>
-				{favoriteNames.length === 0 ? (
-					<span>Click Names to Select Your Favorite Names... </span>
-				) : (
-					favoriteNames.map((favoriteName) => (
-						<FavoriteName
-							key={favoriteName.id}
-							favoriteName={favoriteName}
-							removeFromFavoriteNames={removeFromFavoriteNames}
-						/>
-					))
-				)}
 			</h4>
+			{favoriteNames.length === 0 ? (
+				<h4>Click Names to Select Your Favorite Names... </h4>
+			) : (
+				favoriteNames.map((favoriteName) => (
+					<FavoriteName
+						key={favoriteName.id}
+						favoriteName={favoriteName}
+						removeFromFavoriteNames={removeFromFavoriteNames}
+					/>
+				))
+			)}
 		</div>
 	);
 };
