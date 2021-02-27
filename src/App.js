@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NameFilter from './components/NameFilter';
 import Names from './components/Names';
 import allNames from './Names';
 
@@ -16,6 +17,7 @@ const App = () => {
 			>
 				<span>BABY</span> <span>NAME</span> <span>PICKER</span>
 			</h1>
+			<NameFilter />
 			<Names names={allNames} />
 		</div>
 	);
