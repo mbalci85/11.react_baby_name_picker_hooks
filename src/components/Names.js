@@ -8,6 +8,7 @@ const Names = ({ names }) => {
 				margin: 25,
 				textAlign: 'center',
 				border: 'solid 5px lightpink',
+				padding: 20,
 			}}
 		>
 			{names.map((name) => (
