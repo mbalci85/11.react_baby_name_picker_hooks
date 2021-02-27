@@ -4,6 +4,7 @@ import NameFilter from './components/NameFilter';
 import Names from './components/Names';
 import allNames from './Names';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import About from './components/About';
 
 const App = () => {
 	const [names, setNames] = useState(allNames);
@@ -61,6 +62,7 @@ const App = () => {
 		<Router>
 			<Route
 				path="/"
+				exact
 				render={() => (
 					<React.Fragment>
 						<div>
@@ -118,6 +120,17 @@ const App = () => {
 					</React.Fragment>
 				)}
 			/>
+			<Route path="/about" component={About} />
+
+			<h4 style={{ textAlign: 'center' }}>
+				{' '}
+				<Link to="/" style={{ textDecoration: 'none' }}>
+					Home |{' '}
+				</Link>
+				<Link to="/about" style={{ textDecoration: 'none' }}>
+					About
+				</Link>
+			</h4>
 		</Router>
 	);
 };
