@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NameFilter = ({ filterGirls, filterBoys }) => {
+const NameFilter = ({ filterGirls, filterBoys, filterAll }) => {
 	return (
 		<div style={{ textAlign: 'center' }}>
 			<input
@@ -15,6 +15,7 @@ const NameFilter = ({ filterGirls, filterBoys }) => {
 					borderRadius: 10,
 					backgroundColor: 'lightgray',
 				}}
+				onClick={() => filterAll()}
 			>
 				All
 			</button>

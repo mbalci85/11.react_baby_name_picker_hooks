@@ -14,6 +14,10 @@ const App = () => {
 		setNames(allNames.filter((name) => name.sex === 'm'));
 	};
 
+	const filterAll = () => {
+		setNames(allNames);
+	};
+
 	return (
 		<div>
 			<h1
@@ -26,7 +30,11 @@ const App = () => {
 			>
 				<span>BABY</span> <span>NAME</span> <span>PICKER</span>
 			</h1>
-			<NameFilter filterGirls={filterGirls} filterBoys={filterBoys} />
+			<NameFilter
+				filterGirls={filterGirls}
+				filterBoys={filterBoys}
+				filterAll={filterAll}
+			/>
 			<Names names={names} />
 		</div>
 	);
