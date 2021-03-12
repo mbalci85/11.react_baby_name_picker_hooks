@@ -121,7 +121,6 @@ const App = () => {
 				)}
 			/>
 			<Route path="/about" component={About} />
-
 			<h4 style={{ textAlign: 'center' }}>
 				{' '}
 				<Link to="/" style={{ textDecoration: 'none' }}>
